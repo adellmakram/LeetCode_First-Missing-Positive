@@ -1,0 +1,27 @@
+namespace LeetCode
+{
+    public class Solution
+    {
+        public int FirstMissingPositive(int[] nums)
+        {
+            int x = 1;
+            HashSet<int> positiveValues = new HashSet<int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] > 0)
+                    positiveValues.Add(nums[i]);
+            }
+
+            for (int i = 0; i < positiveValues.Count; i++)
+            {
+                if (positiveValues.Contains(x))
+                {
+                    x++;
+                    continue;
+                }
+                break;
+            }
+                return x;
+        }
+    }
+}
